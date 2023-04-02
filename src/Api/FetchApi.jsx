@@ -3,7 +3,7 @@ import './api.css';
 import CloseIcon from '@material-ui/icons/Close';
 import Before from '@material-ui/icons/NavigateBefore';
 import Next from '@material-ui/icons/NavigateNext';
-// import { LazyLoadImage } from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const FetchApi = () => {
@@ -59,7 +59,7 @@ const FetchApi = () => {
 
       <div className={sign}>
         <Before className='before' onClick={getPrevImage} style={{ fontSize: 60 }}/>
-        <img src={src.download_url} loading="lazy" />
+        <LazyLoadImage src={src.download_url} loading="lazy" />
         <CloseIcon onClick={closebutton} className='closebutton'/>
         <Next className='next' onClick={getNextImage} style={{ fontSize: 60 }}/>
 
@@ -73,7 +73,7 @@ const FetchApi = () => {
               key={index}
               onClick={() => getImage(item, index)}
             >
-              <img
+              <LazyLoadImage
                 loading="lazy"
                 effect = "blur"
                 src={item.download_url}
